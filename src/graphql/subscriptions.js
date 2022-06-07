@@ -8,8 +8,8 @@ export const onCreateACPower = /* GraphQL */ `
       voltage
       current
       power
-      createdAt
-      updatedAt
+      # createdAt
+      # updatedAt
     }
   }
 `;
