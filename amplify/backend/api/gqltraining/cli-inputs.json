@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "gqltraining",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "D:\\Training\\aws-appsync-graphql-training\\amplify\\backend\\api\\gqltraining\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
