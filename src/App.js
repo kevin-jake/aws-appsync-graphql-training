@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { Amplify, API } from "aws-amplify";
+import config from "./aws-exports";
+import { listACPowers } from "./graphql/queries";
+
+Amplify.configure(config);
 
 function App() {
+  const [acPower, setacPower] = useState([]);
+
+  useEffect(() => {
+    fetchACPower();
+  }, []);
+
+  const fetchACPower = async () => {
+    const apiData = await API.graphql({
+      query: listACPowers,
+    });
+    setacPower(apiData.data.listACPowers.items);
+    console.log(apiData);
+  };
+
+  // console.log(acPower);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {acPower?.map((item) => (
+        <div key={item.id}>
+          <h2>{item.id}</h2>
+          <p>{item.current}</p>
+          <p>{item.voltage}</p>
+          <p>{item.power}</p>
+        </div>
+      ))}
     </div>
   );
 }
