@@ -1,21 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateACPower = /* GraphQL */ `
-  subscription OnCreateACPower {
-    onCreateACPower {
-      id
-      voltage
-      current
-      power
-      # createdAt
-      # updatedAt
-    }
-  }
-`;
-export const onUpdateACPower = /* GraphQL */ `
-  subscription OnUpdateACPower {
-    onUpdateACPower {
+export const onCreateTodo = /* GraphQL */ `
+  subscription OnCreateTodo {
+    onCreateTodo {
       id
       voltage
       current
@@ -25,9 +13,21 @@ export const onUpdateACPower = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteACPower = /* GraphQL */ `
-  subscription OnDeleteACPower {
-    onDeleteACPower {
+export const onUpdateTodo = /* GraphQL */ `
+  subscription OnUpdateTodo {
+    onUpdateTodo {
+      id
+      voltage
+      current
+      power
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteTodo = /* GraphQL */ `
+  subscription OnDeleteTodo {
+    onDeleteTodo {
       id
       voltage
       current

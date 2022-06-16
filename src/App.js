@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { a, Amplify, API, graphqlOperation } from "aws-amplify";
 import config from "./aws-exports";
-import { listACPowers } from "./graphql/queries";
-import { onCreateACPower } from "./graphql/subscriptions";
+import { listTodos } from "./graphql/queries";
+import { onCreateTodo } from "./graphql/subscriptions";
 
 Amplify.configure(config);
 
@@ -12,15 +12,15 @@ function App() {
 
   useEffect(() => {
     const subscription = API.graphql(
-      graphqlOperation(onCreateACPower)
+      graphqlOperation(onCreateTodo)
     ).subscribe({
       next: (data) => {
         const {
           value: {
-            data: { onCreateACPower },
+            data: { onCreateTodo },
           },
         } = data;
-        const acData = [...acPower, onCreateACPower];
+        const acData = [...acPower, onCreateTodo];
         setacPower(acData);
       },
     });
@@ -29,9 +29,9 @@ function App() {
 
   // const fetchACPower = async () => {
   //   const apiData = await API.graphql({
-  //     query: listACPowers,
+  //     query: listTodos,
   //   });
-  //   setacPower(apiData.data.listACPowers.items);
+  //   setacPower(apiData.data.listTodos.items);
   // };
 
   console.log(acPower);

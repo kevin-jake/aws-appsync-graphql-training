@@ -1,12 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createACPower = /* GraphQL */ `
-  mutation CreateACPower(
-    $input: CreateACPowerInput!
-    $condition: ModelACPowerConditionInput
+export const createTodo = /* GraphQL */ `
+  mutation CreateTodo(
+    $input: CreateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    createACPower(input: $input, condition: $condition) {
+    createTodo(input: $input, condition: $condition) {
       id
       voltage
       current
@@ -16,12 +16,12 @@ export const createACPower = /* GraphQL */ `
     }
   }
 `;
-export const updateACPower = /* GraphQL */ `
-  mutation UpdateACPower(
-    $input: UpdateACPowerInput!
-    $condition: ModelACPowerConditionInput
+export const updateTodo = /* GraphQL */ `
+  mutation UpdateTodo(
+    $input: UpdateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    updateACPower(input: $input, condition: $condition) {
+    updateTodo(input: $input, condition: $condition) {
       id
       voltage
       current
@@ -31,12 +31,12 @@ export const updateACPower = /* GraphQL */ `
     }
   }
 `;
-export const deleteACPower = /* GraphQL */ `
-  mutation DeleteACPower(
-    $input: DeleteACPowerInput!
-    $condition: ModelACPowerConditionInput
+export const deleteTodo = /* GraphQL */ `
+  mutation DeleteTodo(
+    $input: DeleteTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    deleteACPower(input: $input, condition: $condition) {
+    deleteTodo(input: $input, condition: $condition) {
       id
       voltage
       current

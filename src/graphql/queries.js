@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getACPower = /* GraphQL */ `
-  query GetACPower($id: ID!) {
-    getACPower(id: $id) {
+export const getTodo = /* GraphQL */ `
+  query GetTodo($id: ID!) {
+    getTodo(id: $id) {
       id
       voltage
       current
@@ -13,13 +13,13 @@ export const getACPower = /* GraphQL */ `
     }
   }
 `;
-export const listACPowers = /* GraphQL */ `
-  query ListACPowers(
-    $filter: ModelACPowerFilterInput
+export const listTodos = /* GraphQL */ `
+  query ListTodos(
+    $filter: ModelTodoFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listACPowers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         voltage

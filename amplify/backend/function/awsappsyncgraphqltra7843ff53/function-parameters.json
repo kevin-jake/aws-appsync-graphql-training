@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "api": {
+      "awsappsyncgraphqltra": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

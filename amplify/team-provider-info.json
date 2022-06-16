@@ -1,15 +1,23 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-awsappsyncgraphqltra-dev-02612-authRole",
-      "UnauthRoleArn": "arn:aws:iam::446147634888:role/amplify-awsappsyncgraphqltra-dev-02612-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::446147634888:role/amplify-awsappsyncgraphqltra-dev-02612-authRole",
+      "AuthRoleName": "amplify-awsappsyncgraphqltra-dev-220350-authRole",
+      "UnauthRoleArn": "arn:aws:iam::446147634888:role/amplify-awsappsyncgraphqltra-dev-220350-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::446147634888:role/amplify-awsappsyncgraphqltra-dev-220350-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-awsappsyncgraphqltra-dev-02612-deployment",
-      "UnauthRoleName": "amplify-awsappsyncgraphqltra-dev-02612-unauthRole",
-      "StackName": "amplify-awsappsyncgraphqltra-dev-02612",
-      "StackId": "arn:aws:cloudformation:us-east-1:446147634888:stack/amplify-awsappsyncgraphqltra-dev-02612/6c567750-e5b5-11ec-81c4-0e25dc43ec9f",
-      "AmplifyAppId": "d3s4z78lsoub81"
+      "DeploymentBucketName": "amplify-awsappsyncgraphqltra-dev-220350-deployment",
+      "UnauthRoleName": "amplify-awsappsyncgraphqltra-dev-220350-unauthRole",
+      "StackName": "amplify-awsappsyncgraphqltra-dev-220350",
+      "StackId": "arn:aws:cloudformation:us-east-1:446147634888:stack/amplify-awsappsyncgraphqltra-dev-220350/278d4f70-ed7d-11ec-a245-0a2239fbeccf",
+      "AmplifyAppId": "d1od486g7g84rd"
+    },
+    "categories": {
+      "function": {
+        "awsappsyncgraphqltra7843ff53": {
+          "deploymentBucketName": "amplify-awsappsyncgraphqltra-dev-220350-deployment",
+          "s3Key": "amplify-builds/awsappsyncgraphqltra7843ff53-547231787471784f3570-build.zip"
+        }
+      }
     }
   }
 }
