@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"8.4.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"8.5.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -59,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "awsappsyncgraphqltra7843ff53",
+            "awsappsyncgraphqltra4689721c",
             {
               "Fn::Join": [
                 "",
                 [
-                  "awsappsyncgraphqltra7843ff53",
+                  "awsappsyncgraphqltra4689721c",
                   "-",
                   {
                     "Ref": "env"
@@ -90,6 +90,32 @@
             },
             "API_AWSAPPSYNCGRAPHQLTRA_GRAPHQLAPIKEYOUTPUT": {
               "Ref": "apiawsappsyncgraphqltraGraphQLAPIKeyOutput"
+            },
+            "API_AWSAPPSYNCGRAPHQLTRA_TODOTABLE_NAME": {
+              "Fn::ImportValue": {
+                "Fn::Sub": "${apiawsappsyncgraphqltraGraphQLAPIIdOutput}:GetAtt:TodoTable:Name"
+              }
+            },
+            "API_AWSAPPSYNCGRAPHQLTRA_TODOTABLE_ARN": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:aws:dynamodb:",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ":",
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ":table/",
+                  {
+                    "Fn::ImportValue": {
+                      "Fn::Sub": "${apiawsappsyncgraphqltraGraphQLAPIIdOutput}:GetAtt:TodoTable:Name"
+                    }
+                  }
+                ]
+              ]
             }
           }
         },
@@ -110,12 +136,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "awsappsyncgraphqltraLambdaRole93db6f8f",
+            "awsappsyncgraphqltraLambdaRole14506fb9",
             {
               "Fn::Join": [
                 "",
                 [
-                  "awsappsyncgraphqltraLambdaRole93db6f8f",
+                  "awsappsyncgraphqltraLambdaRole14506fb9",
                   "-",
                   {
                     "Ref": "env"
@@ -264,6 +290,68 @@
                         "Ref": "apiawsappsyncgraphqltraGraphQLAPIIdOutput"
                       },
                       "/types/Subscription/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:Delete*"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apiawsappsyncgraphqltraGraphQLAPIIdOutput}:GetAtt:TodoTable:Name"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apiawsappsyncgraphqltraGraphQLAPIIdOutput}:GetAtt:TodoTable:Name"
+                        }
+                      },
+                      "/index/*"
                     ]
                   ]
                 }

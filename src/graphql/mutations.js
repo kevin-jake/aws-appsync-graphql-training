@@ -11,6 +11,7 @@ export const createTodo = /* GraphQL */ `
       voltage
       current
       power
+      type
       createdAt
       updatedAt
     }
@@ -26,6 +27,7 @@ export const updateTodo = /* GraphQL */ `
       voltage
       current
       power
+      type
       createdAt
       updatedAt
     }
@@ -41,6 +43,7 @@ export const deleteTodo = /* GraphQL */ `
       voltage
       current
       power
+      type
       createdAt
       updatedAt
     }

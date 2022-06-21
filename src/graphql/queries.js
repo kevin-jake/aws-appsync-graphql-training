@@ -8,6 +8,7 @@ export const getTodo = /* GraphQL */ `
       voltage
       current
       power
+      type
       createdAt
       updatedAt
     }
@@ -25,6 +26,37 @@ export const listTodos = /* GraphQL */ `
         voltage
         current
         power
+        type
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const todosByDate = /* GraphQL */ `
+  query TodosByDate(
+    $type: String!
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelTodoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    todosByDate(
+      type: $type
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        voltage
+        current
+        power
+        type
         createdAt
         updatedAt
       }

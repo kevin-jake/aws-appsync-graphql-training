@@ -7,7 +7,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "function": {
-        "awsappsyncgraphqltra7843ff53": {
+        "awsappsyncgraphqltra4689721c": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",

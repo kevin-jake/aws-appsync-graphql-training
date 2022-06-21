@@ -9,22 +9,16 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "apiKeyExpirationDate": "2022-07-16T14:06:11.833Z",
-              "description": "fronten clients"
+              "apiKeyExpirationDays": 7
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }
   },
   "function": {
-    "awsappsyncgraphqltra7843ff53": {
+    "awsappsyncgraphqltra4689721c": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
