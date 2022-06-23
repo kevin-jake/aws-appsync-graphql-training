@@ -3940,7 +3940,7 @@
   dependencies:
     "@syncfusion/ej2-base" "~20.1.55"
 
-"@syncfusion/ej2-calendars@~20.1.58":
+"@syncfusion/ej2-calendars@~20.1.58", "@syncfusion/ej2-calendars@20.1.58":
   "integrity" "sha512-cjSZ9xqvrPIk68e0G/nhyTBHQDgWrDQ0TShbhE6YNBMDQmJif8yjK8uXPgHyt6kh4im0wLzNUWaiXmChS1ACEw=="
   "resolved" "https://registry.npmjs.org/@syncfusion/ej2-calendars/-/ej2-calendars-20.1.58.tgz"
   "version" "20.1.58"
@@ -4035,12 +4035,21 @@
     "@syncfusion/ej2-base" "~20.1.57"
     "@syncfusion/ej2-buttons" "~20.1.55"
 
-"@syncfusion/ej2-react-base@~20.1.59":
+"@syncfusion/ej2-react-base@~20.1.58", "@syncfusion/ej2-react-base@~20.1.59":
   "integrity" "sha512-+I8JULUHo814b5ftjrffA5xaaiH1dquZcKrWWzFtAGyRqpKMIPq3NlosDBgz2wemKjbw8klXUDjmEzgQyG/pUg=="
   "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-base/-/ej2-react-base-20.1.59.tgz"
   "version" "20.1.59"
   dependencies:
     "@syncfusion/ej2-base" "~20.1.57"
+
+"@syncfusion/ej2-react-calendars@^20.1.58":
+  "integrity" "sha512-lFxqwQ9A+WqECjT8sevUo8XCQlGw12cRs4vr8pe8zvc86Bb598qHwelbkH8UQSeGbkXb8uQQDkOo1Da1fogNdw=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-calendars/-/ej2-react-calendars-20.1.58.tgz"
+  "version" "20.1.58"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.1.57"
+    "@syncfusion/ej2-calendars" "20.1.58"
+    "@syncfusion/ej2-react-base" "~20.1.58"
 
 "@syncfusion/ej2-react-charts@^20.1.59":
   "integrity" "sha512-I0un64nmqVF8weCQr8QcIhdNkkzh0z3vxkD1kq4kBgWlRwqeXqsTjpp3bDRwwBK3flzqvO7fWQ88zjlQD4P33g=="

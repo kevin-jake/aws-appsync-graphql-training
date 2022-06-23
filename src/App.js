@@ -4,17 +4,35 @@ import { a, Amplify, API, graphqlOperation } from "aws-amplify";
 import config from "./aws-exports";
 import { listTodos, todosByDate } from "./graphql/queries";
 import { onCreateTodo } from "./graphql/subscriptions";
-import { Category, ChartComponent, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Legend, DataLabel, Tooltip, DateTime } from '@syncfusion/ej2-react-charts'
+import { Category, ChartComponent, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Legend, DataLabel, Tooltip, DateTime, Zoom } from '@syncfusion/ej2-react-charts'
+import { DateRangePickerComponent, DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
 Amplify.configure(config);
 
 function App() {
   const [acPower, setacPower] = useState([]);
+  const [minDate, setminDate] = useState(new Date("2022-06-23T12:30:14.656Z"))
+  const [maxDate, setmaxDate] = useState(new Date("2022-06-23T12:33:46.346Z"))
+  
+  const onChange = ({startDate, endDate}) => {
+    setminDate(startDate)
+    setmaxDate(endDate)
+  }
+
+  const onChangeTime = (event) => {
+    console.log(event.element.id)
+    if (event.element.id === "datetimepicker_min") {
+      setminDate(event.value)
+    }
+    if (event.element.id === "datetimepicker_max") {
+      setmaxDate(event.value)
+    }
+  }
 
   useEffect(() => {
     fetchACPower()
-  }, [])
+  }, [minDate, maxDate])
   
 
   useEffect(() => {
@@ -28,7 +46,7 @@ function App() {
           },
         } = data;
         const acData = [...acPower, onCreateTodo];
-        acData.shift()
+        // acData.shift()
         setacPower(acData);
       },
     });
@@ -36,15 +54,28 @@ function App() {
   }, [acPower]);
 
   const fetchACPower = async () => {
-    const apiData = await API.graphql(graphqlOperation(todosByDate, { type: 'test', limit: 10, sortDirection: 'ASC' }));
+    const apiData = await API.graphql(graphqlOperation(todosByDate, {
+      type: 'test', sortDirection: 'ASC',
+      createdAt: {between: [minDate, maxDate]}
+    }));
     // console.log(apiData)
     setacPower(apiData.data.todosByDate.items);
   };
 
   console.log(acPower);
-
+  const zoomSettings={enableMouseWheelZooming: true, enablePinchZooming: true,
+    enableSelectionZooming: true}
   return (
     <div className="App">
+      <DateRangePickerComponent placeholder='Select a range' delayUpdate={true} startDate={minDate} endDate={maxDate} change={onChange} />
+      <div>
+        <p> Start Time</p>
+        <DateTimePickerComponent id="datetimepicker_min" value={minDate}  change={onChangeTime}/>   
+      </div>
+      <div>
+        <p> End Time</p>
+        <DateTimePickerComponent id="datetimepicker_max" value={maxDate}  change={onChangeTime}/></div>
+      
       {/* {acPower?.map((item, index) => (
         <div key={item.id}>
           <h4>Index: {index}</h4>
@@ -54,10 +85,10 @@ function App() {
           <p>{item.power}</p>
         </div>
       ))} */}
-      <ChartComponent primaryXAxis={{valueType:"DateTime", title:"Time"}} primaryYAxis={{title: "Voltage", minimum: 220, maximum: 230}} legendSettings={{visible:true}} tooltip={{enable:true}}>
-        <Inject services={[LineSeries, Category, Legend, DataLabel, Tooltip, DateTime]}></Inject>
+      <ChartComponent zoomSettings={zoomSettings} primaryXAxis={{valueType:"DateTime", title:"Time", minimum: minDate, maximum: maxDate}} primaryYAxis={{title: "Voltage", minimum: 0, maximum: 300}} legendSettings={{visible:true}} tooltip={{enable:true}}>
+        <Inject services={[LineSeries, Category, Legend, DataLabel, Tooltip, DateTime, Zoom]}></Inject>
         <SeriesCollectionDirective>
-          <SeriesDirective type="Line" dataSource={acPower} xName="createdAt" yName="voltage" name="Voltage"
+          <SeriesDirective type="Line" dataSource={acPower} xName="createdAt" yName="voltage" name="Voltage" 
           marker={{dataLabel:{visible: true}, visible: true}}
           >
 

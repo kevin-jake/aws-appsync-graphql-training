@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@syncfusion/ej2-react-calendars": "^20.1.58",
     "@syncfusion/ej2-react-charts": "^20.1.59",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
