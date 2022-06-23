@@ -15,10 +15,6 @@ function App() {
   const [minDate, setminDate] = useState(new Date("2022-06-23T12:30:14.656Z"))
   const [maxDate, setmaxDate] = useState(new Date("2022-06-23T12:33:46.346Z"))
   
-  const onChange = ({startDate, endDate}) => {
-    setminDate(startDate)
-    setmaxDate(endDate)
-  }
 
   const onChangeTime = (event) => {
     console.log(event.element.id)
@@ -67,7 +63,6 @@ function App() {
     enableSelectionZooming: true}
   return (
     <div className="App">
-      <DateRangePickerComponent placeholder='Select a range' delayUpdate={true} startDate={minDate} endDate={maxDate} change={onChange} />
       <div>
         <p> Start Time</p>
         <DateTimePickerComponent id="datetimepicker_min" value={minDate}  change={onChangeTime}/>   
