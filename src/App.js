@@ -4,7 +4,7 @@ import { a, Amplify, API, graphqlOperation } from "aws-amplify";
 import config from "./aws-exports";
 import { listTodos, todosByDate } from "./graphql/queries";
 import { onCreateTodo } from "./graphql/subscriptions";
-import { Category, ChartComponent, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Legend, DataLabel, Tooltip, DateTime, Zoom } from '@syncfusion/ej2-react-charts'
+import { Category, ChartComponent, Inject, LineSeries, SeriesCollectionDirective, SeriesDirective, Legend, DataLabel, Tooltip, DateTime, Zoom, ScrollBar } from '@syncfusion/ej2-react-charts'
 import { DateRangePickerComponent, DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
@@ -59,7 +59,7 @@ function App() {
   };
 
   console.log(acPower);
-  const zoomSettings={enableMouseWheelZooming: true, enablePinchZooming: true,
+  const zoomSettings={enableMouseWheelZooming: true, enablePinchZooming: true, enableScrollbar: true,
     enableSelectionZooming: true}
   return (
     <div className="App">
@@ -80,8 +80,8 @@ function App() {
           <p>{item.power}</p>
         </div>
       ))} */}
-      <ChartComponent zoomSettings={zoomSettings} primaryXAxis={{valueType:"DateTime", title:"Time", minimum: minDate, maximum: maxDate}} primaryYAxis={{title: "Voltage", minimum: 0, maximum: 300}} legendSettings={{visible:true}} tooltip={{enable:true}}>
-        <Inject services={[LineSeries, Category, Legend, DataLabel, Tooltip, DateTime, Zoom]}></Inject>
+      <ChartComponent zoomSettings={zoomSettings} primaryXAxis={{valueType:"DateTime", title:"Time", minimum: minDate, maximum: maxDate, enableAutoIntervalOnZooming: true}} primaryYAxis={{title: "Voltage", minimum: 0, maximum: 300}} legendSettings={{visible:true}} tooltip={{enable:true}}>
+        <Inject services={[LineSeries, Category, Legend, DataLabel, Tooltip, DateTime, Zoom, ScrollBar]}></Inject>
         <SeriesCollectionDirective>
           <SeriesDirective type="Line" dataSource={acPower} xName="createdAt" yName="voltage" name="Voltage" 
           marker={{dataLabel:{visible: true}, visible: true}}
